@@ -1,0 +1,69 @@
+module.exports = {
+  root: true,
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    project: "./tsconfig.json",
+    tsconfigRootDir: __dirname,
+    ecmaVersion: "latest",
+    sourceType: "module",
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+  extends: [
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+  ],
+  plugins: ["@typescript-eslint"],
+  rules: {
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off",
+    "import/prefer-default-export": "off",
+    "react/function-component-definition": [
+      "error",
+      {
+        namedComponents: "arrow-function",
+        unnamedComponents: "arrow-function",
+      },
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      { argsIgnorePattern: "^_" },
+    ],
+    "import/extensions": "off",
+    "no-underscore-dangle": "off",
+    "@typescript-eslint/lines-between-class-members": "off",
+    "@typescript-eslint/no-throw-literal": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        devDependencies: [
+          "**/*.test.{ts,tsx}",
+          "**/*.spec.{ts,tsx}",
+          "tests/**",
+          "e2e/**",
+          "vitest.config.ts",
+          "playwright.config.ts",
+          "next.config.ts",
+          "postcss.config.js",
+          "tailwind.config.ts",
+        ],
+      },
+    ],
+  },
+  ignorePatterns: [
+    "node_modules/",
+    ".next/",
+    "out/",
+    "coverage/",
+    "playwright-report/",
+    "postcss.config.js",
+    ".eslintrc.js",
+    "next-env.d.ts",
+  ],
+};
