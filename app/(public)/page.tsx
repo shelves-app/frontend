@@ -5,8 +5,8 @@ const HomePage = () => (
         Frontend Starter Kit
       </h1>
       <p className="text-xl text-muted-foreground">
-        A batteries-included starter kit for building production-ready
-        frontend applications with Next.js.
+        A batteries-included starter kit for building production-ready frontend
+        applications with Next.js.
       </p>
     </div>
   </main>

@@ -31,10 +31,7 @@ module.exports = {
         unnamedComponents: "arrow-function",
       },
     ],
-    "@typescript-eslint/no-unused-vars": [
-      "warn",
-      { argsIgnorePattern: "^_" },
-    ],
+    "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
     "import/extensions": "off",
     "no-underscore-dangle": "off",
     "@typescript-eslint/lines-between-class-members": "off",
