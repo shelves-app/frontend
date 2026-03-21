@@ -8,6 +8,7 @@ const withBundleAnalyzer = bundleAnalyzer({
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  output: "standalone",
 };
 
 const sentryConfig = withSentryConfig(withBundleAnalyzer(nextConfig), {
