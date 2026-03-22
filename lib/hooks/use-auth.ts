@@ -103,9 +103,8 @@ export const useAuth = () => {
     // Sign out from Supabase (clears client session)
     await supabase.auth.signOut();
     clear();
-    router.push("/");
-    router.refresh();
-  }, [supabase, clear, router]);
+    window.location.href = "/";
+  }, [supabase, clear]);
 
   const fetchProfile = useCallback(async () => {
     try {
