@@ -39,7 +39,9 @@ const CompleteProfilePage = () => {
   return (
     <Card>
       <CardHeader className="text-center">
-        <CardTitle className="text-2xl font-bold">Set up your profile</CardTitle>
+        <CardTitle className="text-2xl font-bold">
+          Set up your profile
+        </CardTitle>
         <CardDescription>
           Choose a username and display name to get started
         </CardDescription>
@@ -57,7 +59,9 @@ const CompleteProfilePage = () => {
               placeholder="e.g. booklover42"
               value={username}
               onChange={(e) =>
-                setUsername(e.target.value.toLowerCase().replace(/[^a-z0-9_-]/g, ""))
+                setUsername(
+                  e.target.value.toLowerCase().replace(/[^a-z0-9_-]/g, ""),
+                )
               }
               required
               minLength={3}
@@ -86,9 +90,7 @@ const CompleteProfilePage = () => {
             />
           </div>
 
-          {error && (
-            <p className="text-sm text-red-500">{error}</p>
-          )}
+          {error && <p className="text-sm text-red-500">{error}</p>}
 
           <Button type="submit" className="w-full" disabled={isLoading}>
             {isLoading ? "Creating profile..." : "Continue"}

@@ -30,7 +30,9 @@ const ForgotPasswordPage = () => {
       await resetPassword(email);
       setSuccess(true);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to send reset email");
+      setError(
+        err instanceof Error ? err.message : "Failed to send reset email",
+      );
     } finally {
       setIsLoading(false);
     }
@@ -61,7 +63,9 @@ const ForgotPasswordPage = () => {
   return (
     <Card>
       <CardHeader className="text-center">
-        <CardTitle className="text-2xl font-bold">Reset your password</CardTitle>
+        <CardTitle className="text-2xl font-bold">
+          Reset your password
+        </CardTitle>
         <CardDescription>
           Enter your email and we&apos;ll send you a reset link
         </CardDescription>
@@ -77,9 +81,7 @@ const ForgotPasswordPage = () => {
             autoComplete="email"
           />
 
-          {error && (
-            <p className="text-sm text-red-500">{error}</p>
-          )}
+          {error && <p className="text-sm text-red-500">{error}</p>}
 
           <Button type="submit" className="w-full" disabled={isLoading}>
             {isLoading ? "Sending..." : "Send reset link"}

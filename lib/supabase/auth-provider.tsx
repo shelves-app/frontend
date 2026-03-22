@@ -16,9 +16,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     const loadProfile = async () => {
       try {
-        const profile = await api.get<Parameters<typeof setProfile>[0]>(
-          "/v1/auth/me",
-        );
+        const profile =
+          await api.get<Parameters<typeof setProfile>[0]>("/v1/auth/me");
         setProfile(profile);
       } catch {
         setProfile(null);

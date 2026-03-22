@@ -80,9 +80,7 @@ const SignInPage = () => {
             />
           </div>
 
-          {error && (
-            <p className="text-sm text-red-500">{error}</p>
-          )}
+          {error && <p className="text-sm text-red-500">{error}</p>}
 
           <Button type="submit" className="w-full" disabled={isLoading}>
             {isLoading ? "Signing in..." : "Sign in"}
@@ -101,7 +99,10 @@ const SignInPage = () => {
       <CardFooter className="justify-center">
         <p className="text-sm text-muted-foreground">
           Don&apos;t have an account?{" "}
-          <Link href="/sign-up" className="font-medium text-foreground hover:underline">
+          <Link
+            href="/sign-up"
+            className="font-medium text-foreground hover:underline"
+          >
             Sign up
           </Link>
         </p>

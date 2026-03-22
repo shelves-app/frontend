@@ -69,7 +69,9 @@ const SignUpPage = () => {
   return (
     <Card>
       <CardHeader className="text-center">
-        <CardTitle className="text-2xl font-bold">Create your account</CardTitle>
+        <CardTitle className="text-2xl font-bold">
+          Create your account
+        </CardTitle>
         <CardDescription>Start tracking your reading journey</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -114,9 +116,7 @@ const SignUpPage = () => {
             minLength={8}
           />
 
-          {error && (
-            <p className="text-sm text-red-500">{error}</p>
-          )}
+          {error && <p className="text-sm text-red-500">{error}</p>}
 
           <Button type="submit" className="w-full" disabled={isLoading}>
             {isLoading ? "Creating account..." : "Create account"}
@@ -126,7 +126,10 @@ const SignUpPage = () => {
       <CardFooter className="justify-center">
         <p className="text-sm text-muted-foreground">
           Already have an account?{" "}
-          <Link href="/sign-in" className="font-medium text-foreground hover:underline">
+          <Link
+            href="/sign-in"
+            className="font-medium text-foreground hover:underline"
+          >
             Sign in
           </Link>
         </p>

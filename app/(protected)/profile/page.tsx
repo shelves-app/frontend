@@ -7,12 +7,7 @@ import { createClient } from "@/lib/supabase/client";
 import { api } from "@/lib/api";
 import { useAuth } from "@/lib/hooks/use-auth";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface Profile {
   id: string;
@@ -34,7 +29,9 @@ const ProfilePage = () => {
   useEffect(() => {
     const load = async () => {
       const supabase = createClient();
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
 
       if (user) {
         setEmail(user.email || "");
@@ -95,7 +92,9 @@ const ProfilePage = () => {
             )}
             <div>
               <CardTitle className="text-xl">{profile.displayName}</CardTitle>
-              <p className="text-sm text-muted-foreground">@{profile.username}</p>
+              <p className="text-sm text-muted-foreground">
+                @{profile.username}
+              </p>
             </div>
           </div>
         </CardHeader>
@@ -113,13 +112,17 @@ const ProfilePage = () => {
               <p className="text-sm">{email}</p>
             </div>
             <div>
-              <p className="text-sm font-medium text-muted-foreground">Visibility</p>
+              <p className="text-sm font-medium text-muted-foreground">
+                Visibility
+              </p>
               <p className="text-sm capitalize">{profile.profileVisibility}</p>
             </div>
           </div>
 
           <div>
-            <p className="text-sm font-medium text-muted-foreground">Provider</p>
+            <p className="text-sm font-medium text-muted-foreground">
+              Provider
+            </p>
             <p className="text-sm capitalize">{provider}</p>
           </div>
         </CardContent>

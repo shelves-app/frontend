@@ -37,7 +37,9 @@ const ResetPasswordPage = () => {
       await updatePassword(password);
       router.push("/feed");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to update password");
+      setError(
+        err instanceof Error ? err.message : "Failed to update password",
+      );
     } finally {
       setIsLoading(false);
     }
@@ -70,9 +72,7 @@ const ResetPasswordPage = () => {
             minLength={8}
           />
 
-          {error && (
-            <p className="text-sm text-red-500">{error}</p>
-          )}
+          {error && <p className="text-sm text-red-500">{error}</p>}
 
           <Button type="submit" className="w-full" disabled={isLoading}>
             {isLoading ? "Updating..." : "Update password"}
