@@ -1,20 +1,15 @@
-import { createClient } from "@/lib/supabase/client";
+import { useAuthStore } from "@/store/auth";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
 
-async function getAuthHeaders(): Promise<Record<string, string>> {
-  const supabase = createClient();
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
-
-  if (!session?.access_token) return {};
-
-  return { Authorization: `Bearer ${session.access_token}` };
-}
-
-async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
-  const authHeaders = await getAuthHeaders();
+async function request<T>(
+  path: string,
+  options: RequestInit = {},
+): Promise<T> {
+  const { session } = useAuthStore.getState();
+  const authHeaders: Record<string, string> = session?.access_token
+    ? { Authorization: `Bearer ${session.access_token}` }
+    : {};
 
   const res = await fetch(`${API_URL}${path}`, {
     ...options,
@@ -51,5 +46,6 @@ export const api = {
       body: JSON.stringify(body),
     }),
 
-  delete: <T>(path: string) => request<T>(path, { method: "DELETE" }),
+  delete: <T>(path: string) =>
+    request<T>(path, { method: "DELETE" }),
 };

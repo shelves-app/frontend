@@ -16,8 +16,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     const loadProfile = async () => {
       try {
-        const profile =
-          await api.get<Parameters<typeof setProfile>[0]>("/v1/auth/me");
+        const profile = await api.get<Parameters<typeof setProfile>[0]>(
+          "/v1/auth/me",
+        );
         setProfile(profile);
       } catch {
         setProfile(null);
@@ -25,9 +26,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     };
 
     // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
+      // Set session in store FIRST — api helper reads token from store
       setAuth(session?.user ?? null, session);
-      if (session) loadProfile();
+
+      if (session) {
+        await loadProfile();
+      }
+
       setLoading(false);
     });
 
@@ -35,9 +41,12 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange(async (event, session) => {
+      if (event === "INITIAL_SESSION") return;
+
+      // Update store FIRST, then fetch profile
       setAuth(session?.user ?? null, session);
 
-      if (event === "SIGNED_IN" && session) {
+      if (session && (event === "SIGNED_IN" || event === "TOKEN_REFRESHED")) {
         await loadProfile();
       }
 

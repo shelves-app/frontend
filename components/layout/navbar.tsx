@@ -24,9 +24,10 @@ const NavLink = ({
 
 export const Navbar = () => {
   const session = useAuthStore((s) => s.session);
+  const profile = useAuthStore((s) => s.profile);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/40 bg-shelves-header/95 backdrop-blur supports-[backdrop-filter]:bg-shelves-header/80">
+    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="container flex h-14 items-center justify-between">
         {/* Logo + Nav */}
         <div className="flex items-center gap-6">
@@ -57,9 +58,19 @@ export const Navbar = () => {
 
           {session ? (
             <Link href="/profile">
-              <Button size="sm" variant="ghost" className="text-sm">
-                Profile
-              </Button>
+              {profile?.avatarUrl ? (
+                <Image
+                  src={profile.avatarUrl}
+                  alt={profile.displayName}
+                  width={32}
+                  height={32}
+                  className="rounded-full transition-opacity hover:opacity-80"
+                />
+              ) : (
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary text-sm font-semibold">
+                  {profile?.displayName?.charAt(0).toUpperCase() || "?"}
+                </div>
+              )}
             </Link>
           ) : (
             <>
@@ -75,7 +86,7 @@ export const Navbar = () => {
               <Link href="/sign-up">
                 <Button
                   size="sm"
-                  className="bg-shelves-green text-sm font-semibold text-shelves-body hover:bg-shelves-green/90"
+                  className="bg-shelves-green text-sm font-semibold text-background hover:bg-shelves-green/90"
                 >
                   Create account
                 </Button>

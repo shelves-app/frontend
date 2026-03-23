@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    /* Letterboxd-inspired dark theme for books */
+    /* Letterboxd-exact dark theme — single background everywhere */
     --background: 216 18% 11%; /* #14181c */
     --foreground: 0 0% 93%; /* #ededed */
-    --card: 216 18% 13%; /* #181c20 */
+    --card: 216 18% 11%; /* same as background */
     --card-foreground: 0 0% 93%;
-    --popover: 216 18% 13%;
+    --popover: 216 18% 11%;
     --popover-foreground: 0 0% 93%;
     --primary: 145 100% 44%; /* #00e054 - Shelves green */
     --primary-foreground: 216 18% 11%;
-    --secondary: 216 12% 20%; /* #2c3440 */
+    --secondary: 212 18% 22%; /* #2c3440 */
     --secondary-foreground: 0 0% 93%;
-    --muted: 216 12% 20%;
-    --muted-foreground: 216 8% 56%; /* #89929b */
-    --accent: 216 12% 24%; /* #334455 region */
+    --muted: 212 18% 22%;
+    --muted-foreground: 210 6% 56%; /* #89929b */
+    --accent: 212 18% 22%;
     --accent-foreground: 0 0% 93%;
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 93%;
-    --border: 216 12% 20%;
-    --input: 216 12% 20%;
+    --border: 212 18% 22%;
+    --input: 212 18% 22%;
     --ring: 145 100% 44%;
     --radius: 0.25rem;
 

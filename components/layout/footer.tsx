@@ -19,7 +19,7 @@ const FooterLink = ({
 );
 
 export const Footer = () => (
-  <footer className="border-t border-border/40 bg-shelves-header">
+  <footer className="">
     <div className="container py-10">
       <div className="grid gap-8 md:grid-cols-4">
         {/* Brand */}
@@ -72,7 +72,7 @@ export const Footer = () => (
         </div>
       </div>
 
-      <div className="mt-8 border-t border-border/40 pt-6 text-center text-xs text-muted-foreground">
+      <div className="mt-8  pt-6 text-center text-xs text-muted-foreground">
         &copy; {new Date().getFullYear()} Shelves. Made for book lovers.
       </div>
     </div>
