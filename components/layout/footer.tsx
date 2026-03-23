@@ -24,7 +24,7 @@ export const Footer = () => (
       <div className="grid gap-8 md:grid-cols-4">
         {/* Brand */}
         <div className="space-y-3">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             <Image src="/logo.svg" alt="Shelves" width={24} height={24} />
             <span className="font-bold text-foreground">Shelves</span>
           </div>

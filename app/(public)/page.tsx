@@ -386,10 +386,10 @@ const ListCard = ({
 
 const HomePage = () => (
   <div className="flex min-h-screen flex-col">
-    <Navbar />
+    <Navbar transparent />
 
-    {/* Hero — multi-row animated book covers */}
-    <section className="relative overflow-hidden">
+    {/* Hero — multi-row animated book covers (bleeds under navbar) */}
+    <section className="relative -mt-14 overflow-hidden">
       <div
         className="absolute inset-0 z-0 flex flex-col justify-center gap-2 opacity-40"
         style={{
@@ -421,7 +421,7 @@ const HomePage = () => (
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/20 via-background/60 to-background" />
       <div className="absolute inset-0 z-[1] bg-gradient-to-r from-background/80 via-transparent to-background/80" />
 
-      <div className="container relative z-10 flex flex-col items-center py-28 text-center md:py-40">
+      <div className="container relative z-10 flex flex-col items-center pb-28 pt-40 text-center md:pb-40 md:pt-52">
         <Image
           src="/logo.svg"
           alt="Shelves"

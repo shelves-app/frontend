@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Search } from "lucide-react";
@@ -22,16 +23,36 @@ const NavLink = ({
   </Link>
 );
 
-export const Navbar = () => {
+export const Navbar = ({ transparent = false }: { transparent?: boolean }) => {
   const session = useAuthStore((s) => s.session);
   const profile = useAuthStore((s) => s.profile);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    if (!transparent) return undefined;
+
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [transparent]);
+
+  const isTransparent = transparent && !scrolled;
 
   return (
-    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+    <header
+      className={`sticky top-0 z-50 transition-colors duration-300 ${
+        isTransparent
+          ? "bg-transparent"
+          : "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80"
+      }`}
+    >
       <div className="container flex h-14 items-center justify-between">
         {/* Logo + Nav */}
         <div className="flex items-center gap-6">
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-1">
             <Image src="/logo.svg" alt="Shelves" width={28} height={28} />
             <span className="text-lg font-bold tracking-tight text-foreground">
               Shelves

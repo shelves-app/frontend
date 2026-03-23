@@ -74,3 +74,21 @@
 .animate-scroll-right {
   animation: scroll-right 350s linear infinite;
 }
+
+/* Auth page mosaic animation */
+@keyframes float-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-float-up {
+  animation: float-up 80s linear infinite;
+}
+
+.animate-float-down {
+  animation: float-up 90s linear infinite reverse;
+}
