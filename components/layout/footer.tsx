@@ -72,7 +72,7 @@ export const Footer = () => (
         </div>
       </div>
 
-      <div className="mt-8  pt-6 text-center text-xs text-muted-foreground">
+      <div className="mt-8 pt-6 text-center text-xs text-muted-foreground">
         &copy; {new Date().getFullYear()} Shelves. Made for book lovers.
       </div>
     </div>

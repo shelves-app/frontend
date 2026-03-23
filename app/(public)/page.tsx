@@ -316,8 +316,8 @@ const HomePage = () => (
         </h2>
         <p className="mt-3 max-w-md text-sm text-muted-foreground">
           Goodreads has 150M+ users and hasn&apos;t shipped a meaningful update
-          since 2013. Shelves is what they should have built. Import your library
-          and see the difference.
+          since 2013. Shelves is what they should have built. Import your
+          library and see the difference.
         </p>
         <div className="mt-6 flex gap-3">
           <Link href="/sign-up">

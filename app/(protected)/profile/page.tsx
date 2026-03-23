@@ -81,9 +81,7 @@ const ProfilePage = () => {
                 </div>
               )}
               <div>
-                <CardTitle className="text-xl">
-                  {profile.displayName}
-                </CardTitle>
+                <CardTitle className="text-xl">{profile.displayName}</CardTitle>
                 <p className="text-sm text-muted-foreground">
                   @{profile.username}
                 </p>
