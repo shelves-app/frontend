@@ -278,9 +278,7 @@ const HomePage = () => (
     {/* CTA banner */}
     <section className="border-t border-border/40 bg-shelves-surface">
       <div className="container flex flex-col items-center py-16 text-center">
-        <h2 className="text-2xl font-bold md:text-3xl">
-          Join Shelves today.
-        </h2>
+        <h2 className="text-2xl font-bold md:text-3xl">Join Shelves today.</h2>
         <p className="mt-3 max-w-md text-muted-foreground">
           Import your Goodreads library in 3 clicks. Zero switching cost. Start
           building your reading identity.
