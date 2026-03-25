@@ -4,18 +4,18 @@ Web app for **Shelves** — a social book tracking and discovery platform. Built
 
 ## Tech Stack
 
-| Component | Technology |
-| --- | --- |
-| **Framework** | Next.js 15 (App Router, Turbopack) |
-| **Language** | TypeScript (strict mode) |
-| **Styling** | Tailwind CSS 3.4 + shadcn/ui components |
-| **Auth** | Supabase Auth (Google OAuth + email/password) |
-| **State** | Zustand (auth store) + React Query (server state) |
-| **API Client** | Fetch-based with Zustand token injection |
-| **Icons** | Lucide React |
-| **Testing** | Vitest (unit) + Playwright (E2E) |
-| **Linting** | ESLint (Airbnb) + Prettier |
-| **Package Manager** | pnpm |
+| Component           | Technology                                        |
+| ------------------- | ------------------------------------------------- |
+| **Framework**       | Next.js 15 (App Router, Turbopack)                |
+| **Language**        | TypeScript (strict mode)                          |
+| **Styling**         | Tailwind CSS 3.4 + shadcn/ui components           |
+| **Auth**            | Supabase Auth (Google OAuth + email/password)     |
+| **State**           | Zustand (auth store) + React Query (server state) |
+| **API Client**      | Fetch-based with Zustand token injection          |
+| **Icons**           | Lucide React                                      |
+| **Testing**         | Vitest (unit) + Playwright (E2E)                  |
+| **Linting**         | ESLint (Airbnb) + Prettier                        |
+| **Package Manager** | pnpm                                              |
 
 ## Quick Start
 
@@ -91,37 +91,41 @@ middleware.ts               # Next.js middleware (route protection)
 
 Letterboxd-inspired dark theme with Shelves brand colors:
 
-| Token | Value | Usage |
-| --- | --- | --- |
-| `background` | `#14181c` | Page background (single color everywhere) |
-| `foreground` | `#ededed` | Primary text |
-| `muted-foreground` | `#89929b` | Secondary text |
-| `secondary` | `#2c3440` | Card backgrounds, borders, inputs |
-| `shelves-green` | `#00e054` | Primary CTAs, links, brand accent |
-| `shelves-orange` | `#ff8001` | Logo bar 1 |
-| `shelves-blue` | `#40bcf4` | Hover states, secondary accent |
+| Token              | Value     | Usage                                     |
+| ------------------ | --------- | ----------------------------------------- |
+| `background`       | `#14181c` | Page background (single color everywhere) |
+| `foreground`       | `#ededed` | Primary text                              |
+| `muted-foreground` | `#89929b` | Secondary text                            |
+| `secondary`        | `#2c3440` | Card backgrounds, borders, inputs         |
+| `shelves-green`    | `#00e054` | Primary CTAs, links, brand accent         |
+| `shelves-orange`   | `#ff8001` | Logo bar 1                                |
+| `shelves-blue`     | `#40bcf4` | Hover states, secondary accent            |
 
 ## Pages
 
 ### Homepage (`/`)
+
 - 3D animated book cover carousel (4 rows, Google Books covers)
 - Transparent navbar that fades to solid on scroll
 - Feature cards, popular books, reviews, lists sections
 - Hero with logo + tagline + CTA
 
 ### Auth Pages (`/sign-in`, `/sign-up`, etc.)
+
 - Split-screen: animated book cover mosaic (left) + form (right)
 - Rotating literary quotes
 - Google OAuth + email/password
 - Post-signup profile completion (`/complete-profile`)
 
 ### Search (`/search`)
+
 - Auto-focused debounced search input (400ms)
 - ISBN auto-detection for exact-match
 - Book result cards with cover art, authors, genre, description
 - Searches Typesense first, falls back to Open Library + Google Books
 
 ### Profile (`/profile`)
+
 - Avatar, display name, username
 - Reading stats placeholders (Books, This year, Lists, Following)
 - Account info (email, visibility, provider, member since)
@@ -152,15 +156,15 @@ const profile = await api.post("/v1/auth/register", { username, displayName });
 
 ## Scripts
 
-| Command | Description |
-| --- | --- |
-| `pnpm dev` | Start dev server (Turbopack) |
-| `pnpm build` | Production build |
-| `pnpm start` | Start production server |
-| `pnpm test` | Run unit tests (Vitest) |
-| `pnpm test:e2e` | Run E2E tests (Playwright) |
-| `pnpm lint` | Lint with ESLint |
-| `pnpm format` | Check formatting with Prettier |
+| Command         | Description                    |
+| --------------- | ------------------------------ |
+| `pnpm dev`      | Start dev server (Turbopack)   |
+| `pnpm build`    | Production build               |
+| `pnpm start`    | Start production server        |
+| `pnpm test`     | Run unit tests (Vitest)        |
+| `pnpm test:e2e` | Run E2E tests (Playwright)     |
+| `pnpm lint`     | Lint with ESLint               |
+| `pnpm format`   | Check formatting with Prettier |
 
 ## Tests
 
@@ -175,14 +179,14 @@ pnpm test:e2e          # E2E tests (needs Playwright browsers: npx playwright in
 
 Copy `.env.example` to `.env`. Validated at runtime via `t3-oss/env-nextjs`.
 
-| Variable | Required | Description |
-| --- | --- | --- |
-| `NEXT_PUBLIC_SUPABASE_URL` | Yes | Supabase project URL |
-| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Yes | Supabase publishable API key |
-| `NEXT_PUBLIC_APP_URL` | — | Default: `http://localhost:3000` |
-| `NEXT_PUBLIC_API_URL` | — | Default: `http://localhost:4000` |
-| `NEXT_PUBLIC_CDN_URL` | — | Cloudflare CDN URL |
-| `SENTRY_DSN` | — | Error tracking |
+| Variable                               | Required | Description                      |
+| -------------------------------------- | -------- | -------------------------------- |
+| `NEXT_PUBLIC_SUPABASE_URL`             | Yes      | Supabase project URL             |
+| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Yes      | Supabase publishable API key     |
+| `NEXT_PUBLIC_APP_URL`                  | —        | Default: `http://localhost:3000` |
+| `NEXT_PUBLIC_API_URL`                  | —        | Default: `http://localhost:4000` |
+| `NEXT_PUBLIC_CDN_URL`                  | —        | Cloudflare CDN URL               |
+| `SENTRY_DSN`                           | —        | Error tracking                   |
 
 ## Development with Docker
 
