@@ -187,7 +187,8 @@ const SearchPage = () => {
         {!isLoading && results.length > 0 && (
           <div className="mt-6">
             <p className="mb-4 text-xs text-muted-foreground">
-              {total} {total === 1 ? "result" : "results"} for &ldquo;{query}&rdquo;
+              {total} {total === 1 ? "result" : "results"} for &ldquo;{query}
+              &rdquo;
             </p>
             <div className="space-y-1">
               {results.map((book) => (
