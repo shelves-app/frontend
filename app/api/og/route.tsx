@@ -5,7 +5,7 @@ export const runtime = "edge";
 
 export const GET = (request: NextRequest) => {
   const { searchParams } = new URL(request.url);
-  const title = searchParams.get("title") ?? "Frontend Starter Kit";
+  const title = searchParams.get("title") ?? "Shelves";
 
   return new ImageResponse(
     <div
@@ -16,8 +16,8 @@ export const GET = (request: NextRequest) => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#09090b",
-        color: "#fafafa",
+        backgroundColor: "#14181c",
+        color: "#ededed",
       }}
     >
       <div
@@ -34,10 +34,10 @@ export const GET = (request: NextRequest) => {
         style={{
           fontSize: 24,
           marginTop: 20,
-          color: "#a1a1aa",
+          color: "#89929b",
         }}
       >
-        Production-ready Next.js starter kit
+        Track books you&apos;ve read. Discover what to read next.
       </div>
     </div>,
     {

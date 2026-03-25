@@ -1,7 +1,7 @@
 {
-  "name": "frontend",
+  "name": "shelves-frontend",
   "version": "0.1.0",
-  "description": "Frontend service for Shelves App",
+  "description": "Web app for Shelves — a social book tracking and discovery platform",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
