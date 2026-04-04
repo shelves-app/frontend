@@ -70,15 +70,11 @@ describe("DiaryEntryCard", () => {
   it("should render review snippet", () => {
     render(<DiaryEntryCard entry={baseEntry} />);
 
-    expect(
-      screen.getByText(/Really enjoyed this one/),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Really enjoyed this one/)).toBeInTheDocument();
   });
 
   it("should show reread badge when isReread is true", () => {
-    render(
-      <DiaryEntryCard entry={{ ...baseEntry, isReread: true }} />,
-    );
+    render(<DiaryEntryCard entry={{ ...baseEntry, isReread: true }} />);
 
     expect(screen.getByText("Reread")).toBeInTheDocument();
   });
@@ -91,9 +87,7 @@ describe("DiaryEntryCard", () => {
 
   it("should show DNF status badge", () => {
     render(
-      <DiaryEntryCard
-        entry={{ ...baseEntry, status: "did_not_finish" }}
-      />,
+      <DiaryEntryCard entry={{ ...baseEntry, status: "did_not_finish" }} />,
     );
 
     expect(screen.getByText("DNF")).toBeInTheDocument();
@@ -117,19 +111,13 @@ describe("DiaryEntryCard", () => {
   });
 
   it("should show only started date when no finished date", () => {
-    render(
-      <DiaryEntryCard
-        entry={{ ...baseEntry, finishedAt: null }}
-      />,
-    );
+    render(<DiaryEntryCard entry={{ ...baseEntry, finishedAt: null }} />);
 
     expect(screen.getByText(/Started Jan 1, 2024/)).toBeInTheDocument();
   });
 
   it("should handle entries without rating", () => {
-    render(
-      <DiaryEntryCard entry={{ ...baseEntry, rating: null }} />,
-    );
+    render(<DiaryEntryCard entry={{ ...baseEntry, rating: null }} />);
 
     expect(screen.queryByText("4.5")).not.toBeInTheDocument();
   });

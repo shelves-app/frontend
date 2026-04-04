@@ -23,9 +23,7 @@ const DiaryPage = () => {
     if (!session) return;
     setIsLoading(true);
     try {
-      const data = await api.get<DiaryEntry[]>(
-        `/v1/diary?limit=100&offset=0`,
-      );
+      const data = await api.get<DiaryEntry[]>(`/v1/diary?limit=100&offset=0`);
       setEntries(data);
     } catch {
       // Silently handle

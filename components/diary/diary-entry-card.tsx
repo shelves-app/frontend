@@ -55,7 +55,7 @@ export const DiaryEntryCard = ({ entry, onEdit }: DiaryEntryCardProps) => {
       </Link>
 
       {/* Content */}
-      <div className="flex-1 min-w-0">
+      <div className="min-w-0 flex-1">
         {/* Title + badges */}
         <div className="flex items-start gap-2">
           <div className="min-w-0 flex-1">
@@ -135,7 +135,7 @@ export const DiaryEntryCard = ({ entry, onEdit }: DiaryEntryCardProps) => {
 
         {/* Review snippet */}
         {entry.privateNotes && (
-          <p className="mt-2 text-xs text-foreground/70 line-clamp-2">
+          <p className="mt-2 line-clamp-2 text-xs text-foreground/70">
             {entry.privateNotes}
           </p>
         )}
