@@ -97,9 +97,9 @@ Letterboxd-inspired dark theme with Shelvitas brand colors:
 | `foreground`       | `#ededed` | Primary text                              |
 | `muted-foreground` | `#89929b` | Secondary text                            |
 | `secondary`        | `#2c3440` | Card backgrounds, borders, inputs         |
-| `shelvitas-green`    | `#00e054` | Primary CTAs, links, brand accent         |
-| `shelvitas-orange`   | `#ff8001` | Logo bar 1                                |
-| `shelvitas-blue`     | `#40bcf4` | Hover states, secondary accent            |
+| `shelvitas-green`  | `#00e054` | Primary CTAs, links, brand accent         |
+| `shelvitas-orange` | `#ff8001` | Logo bar 1                                |
+| `shelvitas-blue`   | `#40bcf4` | Hover states, secondary accent            |
 
 ## Pages
 
