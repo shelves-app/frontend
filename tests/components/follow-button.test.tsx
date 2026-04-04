@@ -11,17 +11,13 @@ vi.stubGlobal("fetch", mockFetch);
 vi.mock("@/lib/supabase/client", () => ({
   createClient: () => ({
     auth: {
-      getSession: vi
-        .fn()
-        .mockResolvedValue({ data: { session: null } }),
+      getSession: vi.fn().mockResolvedValue({ data: { session: null } }),
     },
   }),
 }));
 
 // Import after mocks
-const { FollowButton } = await import(
-  "@/components/profile/follow-button"
-);
+const { FollowButton } = await import("@/components/profile/follow-button");
 
 beforeEach(() => {
   vi.clearAllMocks();
@@ -43,9 +39,7 @@ describe("FollowButton", () => {
       />,
     );
 
-    expect(
-      screen.getByRole("button", { name: "Follow" }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Follow" })).toBeInTheDocument();
   });
 
   it("should show Request button for private profiles when authenticated", () => {
@@ -54,16 +48,10 @@ describe("FollowButton", () => {
     });
 
     render(
-      <FollowButton
-        userId="user-1"
-        initialIsFollowing={false}
-        isPrivate
-      />,
+      <FollowButton userId="user-1" initialIsFollowing={false} isPrivate />,
     );
 
-    expect(
-      screen.getByRole("button", { name: "Request" }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Request" })).toBeInTheDocument();
   });
 
   it("should show Following when already following", () => {
@@ -72,11 +60,7 @@ describe("FollowButton", () => {
     });
 
     render(
-      <FollowButton
-        userId="user-1"
-        initialIsFollowing
-        isPrivate={false}
-      />,
+      <FollowButton userId="user-1" initialIsFollowing isPrivate={false} />,
     );
 
     expect(
@@ -130,11 +114,7 @@ describe("FollowButton", () => {
     });
 
     render(
-      <FollowButton
-        userId="user-1"
-        initialIsFollowing={false}
-        isPrivate
-      />,
+      <FollowButton userId="user-1" initialIsFollowing={false} isPrivate />,
     );
 
     fireEvent.click(screen.getByRole("button", { name: "Request" }));
@@ -157,11 +137,7 @@ describe("FollowButton", () => {
     });
 
     render(
-      <FollowButton
-        userId="user-1"
-        initialIsFollowing
-        isPrivate={false}
-      />,
+      <FollowButton userId="user-1" initialIsFollowing isPrivate={false} />,
     );
 
     fireEvent.click(screen.getByRole("button", { name: "Following" }));

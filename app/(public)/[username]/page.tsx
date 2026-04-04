@@ -140,9 +140,7 @@ const ProfilePage = async ({
                 <Lock className="h-4 w-4 text-muted-foreground" />
               )}
             </div>
-            <p className="text-sm text-muted-foreground">
-              @{profile.username}
-            </p>
+            <p className="text-sm text-muted-foreground">@{profile.username}</p>
 
             {full && profile.bio && (
               <p className="mt-2 max-w-lg text-sm text-foreground/80">
@@ -212,9 +210,7 @@ const ProfilePage = async ({
         {!full && (
           <div className="mt-12 text-center">
             <Lock className="mx-auto h-8 w-8 text-muted-foreground" />
-            <p className="mt-3 text-sm font-medium">
-              This account is private
-            </p>
+            <p className="mt-3 text-sm font-medium">This account is private</p>
             <p className="mt-1 text-xs text-muted-foreground">
               Follow this user to see their books, reviews, and lists.
             </p>
@@ -251,24 +247,26 @@ const ProfilePage = async ({
           </div>
         )}
 
-        {full && profile.favouriteBooks.length === 0 && profile.isOwnProfile && (
-          <div className="mt-8">
-            <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-              Favourite books
-            </h2>
-            <div className="mt-3 grid grid-cols-4 gap-3">
-              {Array.from({ length: 4 }).map((_, i) => (
-                <div
-                  key={`empty-fav-${i + 1}`}
-                  className="aspect-[2/3] rounded-sm border border-dashed border-secondary bg-secondary/20"
-                />
-              ))}
+        {full &&
+          profile.favouriteBooks.length === 0 &&
+          profile.isOwnProfile && (
+            <div className="mt-8">
+              <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                Favourite books
+              </h2>
+              <div className="mt-3 grid grid-cols-4 gap-3">
+                {Array.from({ length: 4 }).map((_, i) => (
+                  <div
+                    key={`empty-fav-${i + 1}`}
+                    className="aspect-[2/3] rounded-sm border border-dashed border-secondary bg-secondary/20"
+                  />
+                ))}
+              </div>
+              <p className="mt-2 text-xs text-muted-foreground">
+                Add your 4 favourite books to show on your profile.
+              </p>
             </div>
-            <p className="mt-2 text-xs text-muted-foreground">
-              Add your 4 favourite books to show on your profile.
-            </p>
-          </div>
-        )}
+          )}
 
         {/* ── Tabs (Read, Currently Reading, Reviews, Lists, Want to Read) ── */}
         {full && (

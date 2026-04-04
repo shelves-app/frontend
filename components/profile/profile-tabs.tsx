@@ -47,8 +47,7 @@ export const ProfileTabs = ({ username }: { username: string }) => {
           {activeTab === "read" && `${username}'s read books will appear here.`}
           {activeTab === "reading" &&
             `Books ${username} is currently reading will appear here.`}
-          {activeTab === "reviews" &&
-            `${username}'s reviews will appear here.`}
+          {activeTab === "reviews" && `${username}'s reviews will appear here.`}
           {activeTab === "lists" && `${username}'s lists will appear here.`}
           {activeTab === "want" &&
             `Books ${username} wants to read will appear here.`}
