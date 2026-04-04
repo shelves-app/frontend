@@ -92,6 +92,27 @@ describe("api client", () => {
     });
   });
 
+  describe("patch", () => {
+    it("should make PATCH request with body", async () => {
+      mockFetch.mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        json: () => Promise.resolve({ data: { id: "789", name: "Updated" } }),
+      });
+
+      const result = await api.patch("/v1/test/789", { name: "Updated" });
+
+      expect(mockFetch).toHaveBeenCalledWith(
+        "http://localhost:4000/v1/test/789",
+        expect.objectContaining({
+          method: "PATCH",
+          body: JSON.stringify({ name: "Updated" }),
+        }),
+      );
+      expect(result).toEqual({ id: "789", name: "Updated" });
+    });
+  });
+
   describe("auth headers", () => {
     it("should not include auth header when no session", async () => {
       mockFetch.mockResolvedValueOnce({
@@ -104,6 +125,53 @@ describe("api client", () => {
 
       const [, options] = mockFetch.mock.calls[0];
       expect(options.headers.Authorization).toBeUndefined();
+    });
+
+    it("should include auth header when session exists in store", async () => {
+      // Set session in the auth store
+      const { useAuthStore } = await import("@/store/auth");
+      useAuthStore.setState({
+        session: { access_token: "test-jwt-token" } as never,
+      });
+
+      mockFetch.mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        json: () => Promise.resolve({ data: {} }),
+      });
+
+      await api.get("/v1/test");
+
+      const [, options] = mockFetch.mock.calls[0];
+      expect(options.headers.Authorization).toBe("Bearer test-jwt-token");
+
+      // Clean up
+      useAuthStore.setState({ session: null });
+    });
+  });
+
+  describe("error handling", () => {
+    it("should throw with error message from response body", async () => {
+      mockFetch.mockResolvedValueOnce({
+        ok: false,
+        status: 400,
+        json: () =>
+          Promise.resolve({
+            error: { message: "Bad request" },
+          }),
+      });
+
+      await expect(api.post("/v1/test", {})).rejects.toThrow("Bad request");
+    });
+
+    it("should throw with status code when no error message in response", async () => {
+      mockFetch.mockResolvedValueOnce({
+        ok: false,
+        status: 500,
+        json: () => Promise.resolve({}),
+      });
+
+      await expect(api.get("/v1/test")).rejects.toThrow("Request failed: 500");
     });
   });
 });
