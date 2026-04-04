@@ -114,7 +114,10 @@ describe("useAuth", () => {
 
       await expect(
         act(async () => {
-          await result.current.signUpWithEmail("exists@example.com", "password123");
+          await result.current.signUpWithEmail(
+            "exists@example.com",
+            "password123",
+          );
         }),
       ).rejects.toThrow("User already registered");
     });
@@ -168,9 +171,12 @@ describe("useAuth", () => {
         await result.current.resetPassword("test@example.com");
       });
 
-      expect(mockResetPasswordForEmail).toHaveBeenCalledWith("test@example.com", {
-        redirectTo: expect.stringContaining("/auth/callback?type=recovery"),
-      });
+      expect(mockResetPasswordForEmail).toHaveBeenCalledWith(
+        "test@example.com",
+        {
+          redirectTo: expect.stringContaining("/auth/callback?type=recovery"),
+        },
+      );
     });
 
     it("should throw when supabase returns an error", async () => {
@@ -198,7 +204,9 @@ describe("useAuth", () => {
         await result.current.updatePassword("newpassword123");
       });
 
-      expect(mockUpdateUser).toHaveBeenCalledWith({ password: "newpassword123" });
+      expect(mockUpdateUser).toHaveBeenCalledWith({
+        password: "newpassword123",
+      });
     });
 
     it("should throw when supabase returns an error", async () => {
@@ -249,7 +257,10 @@ describe("useAuth", () => {
         expect.stringContaining("/v1/auth/register"),
         expect.objectContaining({
           method: "POST",
-          body: JSON.stringify({ username: "newuser", displayName: "New User" }),
+          body: JSON.stringify({
+            username: "newuser",
+            displayName: "New User",
+          }),
         }),
       );
       expect(useAuthStore.getState().profile).toEqual(mockProfile);
