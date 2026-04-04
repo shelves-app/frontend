@@ -39,6 +39,7 @@ pnpm dev
 app/
 ├── (public)/               # Public pages (no auth required)
 │   ├── page.tsx            # Homepage — hero, features, book sections
+│   ├── [username]/page.tsx # Public profile page (SSR) — stats, tabs, follow
 │   ├── logo/page.tsx       # Logo display
 │   └── testing/page.tsx    # API testing page
 ├── (auth)/                 # Auth pages (split-screen layout with book mosaic)
@@ -66,6 +67,9 @@ components/
 │   └── footer.tsx          # Site footer
 ├── auth/
 │   └── oauth-buttons.tsx   # Google OAuth button
+├── profile/
+│   ├── follow-button.tsx   # Follow/Unfollow/Request button (client)
+│   └── profile-tabs.tsx    # Read, Currently Reading, Reviews, Lists, Want to Read tabs
 └── ui/                     # shadcn/ui primitives (Button, Card, Input, etc.)
 
 lib/
