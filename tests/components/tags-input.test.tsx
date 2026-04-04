@@ -5,12 +5,7 @@ import { TagsInput } from "@/components/book/tags-input";
 
 describe("TagsInput", () => {
   it("should render existing tags", () => {
-    render(
-      <TagsInput
-        value={["fantasy", "sci-fi"]}
-        onChange={vi.fn()}
-      />,
-    );
+    render(<TagsInput value={["fantasy", "sci-fi"]} onChange={vi.fn()} />);
 
     expect(screen.getByText("fantasy")).toBeInTheDocument();
     expect(screen.getByText("sci-fi")).toBeInTheDocument();
@@ -40,9 +35,7 @@ describe("TagsInput", () => {
 
   it("should remove tag on X click", () => {
     const onChange = vi.fn();
-    render(
-      <TagsInput value={["remove-me", "keep"]} onChange={onChange} />,
-    );
+    render(<TagsInput value={["remove-me", "keep"]} onChange={onChange} />);
 
     fireEvent.click(screen.getByLabelText("Remove remove-me"));
 
@@ -51,9 +44,7 @@ describe("TagsInput", () => {
 
   it("should remove last tag on backspace when input is empty", () => {
     const onChange = vi.fn();
-    render(
-      <TagsInput value={["first", "last"]} onChange={onChange} />,
-    );
+    render(<TagsInput value={["first", "last"]} onChange={onChange} />);
 
     const input = screen.getByRole("textbox");
     fireEvent.keyDown(input, { key: "Backspace" });
@@ -85,11 +76,7 @@ describe("TagsInput", () => {
 
   it("should show placeholder when no tags", () => {
     render(
-      <TagsInput
-        value={[]}
-        onChange={vi.fn()}
-        placeholder="Add tags..."
-      />,
+      <TagsInput value={[]} onChange={vi.fn()} placeholder="Add tags..." />,
     );
 
     expect(screen.getByPlaceholderText("Add tags...")).toBeInTheDocument();

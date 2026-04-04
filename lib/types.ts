@@ -116,3 +116,29 @@ export interface BookPageData {
   topReviews: BookReview[];
   userStatus: UserBookStatus | null;
 }
+
+// ── Diary ────────────────────────────────────────────────────
+
+export interface DiaryEntry {
+  id: string;
+  userId: string;
+  bookId: string;
+  status: "want_to_read" | "currently_reading" | "read" | "did_not_finish";
+  rating: string | null;
+  startedAt: string | null;
+  finishedAt: string | null;
+  currentPage: number | null;
+  currentPercent: number | null;
+  format: "physical" | "ebook" | "audiobook" | "borrowed" | null;
+  edition: string | null;
+  tags: string[] | null;
+  privateNotes: string | null;
+  isReread: boolean;
+  createdAt: string;
+  updatedAt: string;
+  book: {
+    id: string;
+    title: string;
+    coverUrl: string | null;
+  };
+}

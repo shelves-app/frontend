@@ -53,6 +53,7 @@ app/
 ├── (protected)/            # Authenticated pages
 │   ├── layout.tsx          # Auth guard (redirects to /sign-in)
 │   ├── profile/page.tsx    # User profile with stats
+│   ├── diary/page.tsx      # Reading diary — chronological logs, year filter, edit inline
 │   └── search/page.tsx     # Book search (Typesense + external APIs)
 ├── auth/callback/page.tsx  # OAuth callback handler
 ├── layout.tsx              # Root layout (Inter font, providers, metadata)
@@ -78,6 +79,8 @@ components/
 │   ├── star-rating.tsx      # Clickable half-star rating input (0.5-5.0)
 │   ├── tags-input.tsx       # Tag input with Enter/comma add, backspace remove
 │   └── log-modal.tsx        # Full log/review modal (status, dates, rating, format, tags, review, notes)
+├── diary/
+│   └── diary-entry-card.tsx # Diary entry row (cover, dates, rating, format, tags, reread badge, edit)
 └── ui/                     # shadcn/ui primitives (Button, Card, Input, etc.)
 
 lib/

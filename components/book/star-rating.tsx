@@ -64,11 +64,7 @@ export const StarRating = ({
             key={starIndex}
             type="button"
             className={`relative ${readOnly ? "cursor-default" : "cursor-pointer"}`}
-            onClick={() =>
-              handleClick(
-                hoverValue ?? starIndex,
-              )
-            }
+            onClick={() => handleClick(hoverValue ?? starIndex)}
             onMouseMove={(e) => handleMouseMove(e, starIndex)}
             disabled={readOnly}
             aria-label={`${starIndex} star${starIndex > 1 ? "s" : ""}`}

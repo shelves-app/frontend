@@ -51,11 +51,7 @@ describe("LogModal", () => {
     };
 
     render(
-      <LogModal
-        bookId="book-1"
-        bookTitle="Test Book"
-        existingEntry={entry}
-      />,
+      <LogModal bookId="book-1" bookTitle="Test Book" existingEntry={entry} />,
     );
 
     expect(
@@ -106,7 +102,9 @@ describe("LogModal", () => {
     fireEvent.click(screen.getByRole("button", { name: "Log / Review" }));
 
     await waitFor(() => {
-      expect(screen.getByRole("button", { name: "Log Book" })).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: "Log Book" }),
+      ).toBeInTheDocument();
     });
 
     fireEvent.click(screen.getByRole("button", { name: "Log Book" }));
@@ -141,11 +139,7 @@ describe("LogModal", () => {
     });
 
     render(
-      <LogModal
-        bookId="book-1"
-        bookTitle="Test Book"
-        existingEntry={entry}
-      />,
+      <LogModal bookId="book-1" bookTitle="Test Book" existingEntry={entry} />,
     );
 
     fireEvent.click(screen.getByRole("button", { name: "Edit Log" }));
